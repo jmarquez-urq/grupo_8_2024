@@ -7,15 +7,32 @@
     <title>Usuario</title>
 </head>
 <body>
-    <br><h3>Iniciar sesión como usuario</h3><br>
+    <div id="inicioSecion">
+        <br><h3>Iniciar sesión como usuario</h3><br>
 
-    <form action="elegir.php" method="post" id="form-2"><br>
-        <input type="hidden" name="usuario" value="publico">
-        <input type="text" name="nombre" value="juan">
-        <button type="submit" name="usuario" value="publico" class="btn btn-primary">Nombre</button><br><br>
-    </form>
+        <form action="elegir.php" method="post" id="form-2"><br>
+            <input type="hidden" name="usuario" value="publico">
+            <input type="text" name="nombre">
+            <input type="password" name="contraseña">
+            <button type="submit" name="usuario" value="publico" class="btn btn-primary">Nombre</button><br><br>
+        </form>
+        <div id="error"></div>
 
-<div id="posts"></div>
+    </div>
+
+    <div id="content" style="display: none;">
+        <p id="username">Usuario</p>
+        <h1>
+            Posteos
+        </h1>
+        <p>Postear</p>
+        <form action="postear.php" method="post" id="formPost">
+            <input type="text" name="content">
+            <button type="submit" name="posteo" value="publi" class="btn btn-primary">Publicar</button>
+        </form>
+        <div id="posts"></div>
+    </div>
+
 <script src="usuarios.js"></script>
 </body>
 </html>

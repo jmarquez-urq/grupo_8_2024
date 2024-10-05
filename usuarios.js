@@ -12,8 +12,14 @@ form.addEventListener('submit', function(event){
 });
 
 function mostrarResultados(datos)
-{
-    let respuesta = "<h1>Resultados:</h1><ul>";
-    respuesta += "<li>Nombre: " + datos.nombre + "</li></ul>";
-    document.querySelector('#posts').innerHTML = respuesta;
+{  
+    if(datos.nombre == "Error en los datos"){
+        document.querySelector('#error').innerHTML = "<p>" + datos.nombre + "</p>";
+    }
+    else{
+        document.querySelector('#content').style.display = "block";
+        document.querySelector('#inicioSecion').style.display = "none";
+        let respuesta = "<p>" + datos.nombre + "</p>";
+        document.querySelector('#username').innerHTML = respuesta;
+    }
 }

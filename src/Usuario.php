@@ -1,7 +1,10 @@
 <?php
+use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\MappedSuperclass]
 abstract class Usuario{
     
+    #[ORM\Column(type: 'string')]
     protected string $nombre;
 
     public function __construct($nombre) {

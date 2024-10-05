@@ -7,16 +7,28 @@
     <title>Administrador</title>
 </head>
 <body>
-    <br><h3>Iniciar sesión como administrador</h3><br>
+    <div id="inicioSecion">
+        <br><h3>Iniciar sesión como administrador</h3><br>
 
-    <form action="elegir.php" method="post" id="form-3">
-        <input type="hidden" name="usuario" value="admin">
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre"><br>
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" name="contraseña"><br><br>
-        <button type="submit" name="usuario" value="admin" class="btn btn-success">Ingresar</button>
-    </form>
+        <form action="elegir.php" method="post" id="form-2">
+            <input type="hidden" name="usuario" value="admin">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre"><br>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" name="contraseña"><br><br>
+            
+            <button type="submit" name="usuario" value="admin" class="btn btn-success">Ingresar</button>
+        </form>
+        <div id="error"></div>
+    </div>
+    <div id="content" style="display:none ;">
+        <p id="username">Usuario</p>
+        <h1>
+            Posteos
+        </h1>
+    </div>
 
+<script src="usuarios.js">
+</script>
 </body>
 </html>
