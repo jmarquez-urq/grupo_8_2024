@@ -7,14 +7,20 @@ require_once 'Usuario.php';
 #[ORM\Table(name: "usuario_admin")]
 class Admin extends Usuario{
 
+    #[ORM\OneToMany(targetEntity: Posteo::class, mappedBy: 'admins')]
+    private Collection $posteos;
+
     #[ORM\Id, ORM\Column(type:'integer')]
     #[ORM\GeneratedValue]
-    private int|null $id = null;
+    protected int|null $id = null;
 
     public function __construct($nombre){
         parent::__construct($nombre);
     }
 
-    #[ORM\OneToMany(targetEntity: Posteo::class, mappedBy: 'admins')]
-    private Collection $posteos;
+    public function getPosteos(){
+        return $this->posteos;
+    }
+
 }
+   

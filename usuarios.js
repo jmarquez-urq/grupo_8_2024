@@ -13,7 +13,7 @@ form.addEventListener('submit', function(event){
 
 function mostrarResultados(datos)
 {  
-    if(datos.nombre == "Error en los datos"){
+    if(datos.nombre == "Erroror en los datos"){
         document.querySelector('#error').innerHTML = "<p>" + datos.nombre + "</p>";
     }
     else{

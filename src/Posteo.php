@@ -9,6 +9,12 @@ class Posteo{
     
     #[ORM\Column(type: 'string')]
     protected string $contenido;
+    
+    #[ORM\ManyToOne(targetEntity: UsuarioNormal::class, inversedBy: 'posteos')]
+    private UsuarioNormal|null $usuarios = null;
+
+    #[ORM\ManyToOne(targetEntity: Admin::class, inversedBy: 'posteos')]
+    private Admin|null $admins = null;
 
     
 
@@ -21,11 +27,29 @@ class Posteo{
 
     }
 
-    #[ORM\ManyToOne(targetEntity: UsuarioNormal::class, inversedBy: 'posteos')]
-    private Collection $usuarios;
+    public function getId()
+    {
+        return $this->id;
+    }
 
-    #[ORM\ManyToOne(targetEntity: Admin::class, inversedBy: 'posteos')]
-    private Collection $admins;
+    public function getUsuarios(){
+        return $this->usuarios;
+    }
+
+    public function setUsuario(Usuario $u)
+    {
+        $this->usuarios = $u;
+    }
+
+    public function getAdmins(){
+        return $this->admins;
+    }
+
+    public function setAdmin(Admin $a)
+    {
+        $this->admins = $a;
+    }
+
 
     public function getContenido(){
         return $this->contenido;
