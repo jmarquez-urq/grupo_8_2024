@@ -16,15 +16,12 @@ class Posteo{
     #[ORM\ManyToOne(targetEntity: Admin::class, inversedBy: 'posteos')]
     private Admin|null $admins = null;
 
-    
-
     #[ORM\Id, ORM\Column(type:'integer')]
     #[ORM\GeneratedValue]
     private int|null $id = null;
 
     public function __construct($contenido) {
         $this->contenido = $contenido;
-
     }
 
     public function getId()
@@ -50,10 +47,7 @@ class Posteo{
         $this->admins = $a;
     }
 
-
     public function getContenido(){
-        return $this->contenido;
+        return $this->contenido ? $this->contenido : "No se proporcionó data.";
     }
-
-    
 }

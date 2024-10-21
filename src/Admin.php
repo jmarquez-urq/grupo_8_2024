@@ -1,6 +1,7 @@
 <?php
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 require_once 'Usuario.php';
 #[ORM\Entity(repositoryClass: AdminRepository::class)]
@@ -21,6 +22,4 @@ class Admin extends Usuario{
     public function getPosteos(){
         return $this->posteos;
     }
-
 }
-   

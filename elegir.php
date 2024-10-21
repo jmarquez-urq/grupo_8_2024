@@ -2,7 +2,6 @@
 require_once 'bootstrap.php';
 $ingresado = false;
 
-
 if ($_POST['usuario'] == "publico") {
     $ingresado = true;
     $type = "NormalUser";
@@ -12,10 +11,27 @@ else if ($_POST['usuario'] == "admin" && $_POST['contraseña'] == "1234"){
         $ingresado = true;
         $type = "Admin";
         $cuenta = new Admin($_POST['nombre'],$_POST['contraseña']);
-        }
+    }
 
 if ($ingresado){
     $respuesta['nombre'] = $cuenta->getNombre();
+    $respuesta['tipo'] = "usuario";
+
+    $lista = $entityManager->getRepository("Posteo")->findAll();
+
+    try {
+        foreach ($lista as $p) {
+            $respuesta['posteo'][] = [
+                'id' => $p->getId(),
+                'contenido' => $p->getContenido(),
+                'users' => $p->getUsuarios()
+            ];
+        }
+        $respuesta['error'] = false;
+    } catch (\Exception $e) {
+        $respuesta['bd'] = "Error: " . $e->getMessage();
+    }
+
     try {
         $entityManager->persist($cuenta);
         $entityManager->flush();

@@ -10,15 +10,17 @@
     <div id="inicioSecion">
         <br><h3>Iniciar sesión como administrador</h3><br>
 
-        <form action="elegir.php" method="post" id="form-2">
-            <input type="hidden" name="usuario" value="admin">
-            <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre"><br>
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" name="contraseña"><br><br>
-            
-            <button type="submit" name="usuario" value="admin" class="btn btn-success">Ingresar</button>
-        </form>
+        <div style="width: 200px;" class="mb-3">
+            <form action="elegir.php" method="post" id="form-2">
+                <input type="hidden" name="usuario" value="admin">
+                <label class="form-label" for="nombre">Nombre:</label>
+                <input class="form-control" type="text" name="nombre"><br>
+                <label class="form-label" for="contraseña">Contraseña:</label>
+                <input class="form-control" type="password" name="contraseña"><br><br>
+                
+                <button type="submit" name="usuario" value="admin" class="btn btn-success">Ingresar</button>
+            </form>
+        </div>
         <div id="error"></div>
     </div>
     <div id="content" style="display:none ;">
@@ -26,9 +28,20 @@
         <h1>
             Posteos
         </h1>
+        <h2>Nuevo Anuncio</h2>
+
+        <div style="width: 400px;" class="mb-3">
+            <form class="mb-3" action="postear.php" method="post" id="form-2">
+                <input type="text" name="content" class="form-control">
+                <button type="submit" name="posteo" value="publi" class="btn btn-primary">Publicar</button>
+            </form>
+            <div id="posts"></div>
+        </div>
     </div>
 
 <script src="usuarios.js">
-</script>
+</script> 
+<style>
+</style>
 </body>
 </html>

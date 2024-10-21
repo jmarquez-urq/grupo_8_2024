@@ -9,7 +9,6 @@ abstract class Usuario{
 
     public function __construct($nombre) {
         $this->nombre = $nombre;
-
     }
 
     public function postear(){
@@ -24,6 +23,4 @@ abstract class Usuario{
     public function getNombre(){
         return $this->nombre;
     }
-
-    
 }
